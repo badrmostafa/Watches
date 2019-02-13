@@ -1,0 +1,42 @@
+﻿@model Watches.Models.Classes.Product
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<p class="error">@ViewBag.ConcurrencyErrorMessage</p>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Feature.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feature.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeWatch.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeWatch.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model=>model.ProductID)
+        @Html.HiddenFor(model=>model.RowVersion)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

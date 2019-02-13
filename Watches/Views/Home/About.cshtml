@@ -1,0 +1,71 @@
+﻿@{ 
+    Layout = "~/Views/Home/_LayoutHome.cshtml";
+}
+
+
+
+
+
+<section class="feature-list section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading">
+                    <h2>@ViewBag.choose.Title</h2>
+                </div>
+            </div>
+
+        </div>
+        @foreach (var item in ViewBag.ch)
+            {
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img class="" src="@item.Image" alt="">
+                </div>
+                <div class="col-md-6">
+                    <div class="content mt-100">
+                        <h4 class="subheading">@item.Head</h4>
+                        <p>@item.Description</p>
+                        <a href="" class="btn btn-main btn-main-sm">Check Features</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</section>
+
+
+<section class="gallery" style="display:inline;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading">
+                    <h2>@ViewBag.typewatch.Title</h2>
+                </div>
+
+
+
+                <div class="gallery-slider">
+                    <div class="block">
+                        @*<div class="gallery-overlay">
+                                <a href="../Images/showcase-2.png" class="image-popup gallery-popup">
+                                    <i class="tf-ion-ios-search"></i>
+                                </a>
+                            </div>*@
+                        @foreach (var item in ViewBag.tw)
+                        {
+                            <img class="img-fluid" src="@item.Image" alt="" style="display:inline;">
+                        }
+                    </div>
+
+                </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</section>

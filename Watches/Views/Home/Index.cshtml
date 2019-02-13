@@ -1,0 +1,203 @@
+﻿
+@{ 
+    Layout = "~/Views/Home/_LayoutHome.cshtml";
+}
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+    <section class="hero-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="@ViewBag.watch.Image" alt="">
+                </div>
+                <div class="col-md-6">
+                    <div class="block">
+                        <h1 class="">@ViewBag.watch.Head</h1>
+                        <p>@ViewBag.watch.Description</p>
+                        <a class="btn btn-main" href="#about" role="button">@ViewBag.watch.Button</a>
+                    </div>
+                </div>
+            </div><!-- .row close -->
+        </div><!-- .container close -->
+    </section><!-- header close -->
+    <!--
+    Feature start
+    ==================== -->
+    <section class="feature section">
+        <div class="container">
+            <div class="row">
+                <div class="heading">
+                    <h2>@ViewBag.feature.Title</h2>
+                </div>
+                <div class="col-md-4">
+                    @foreach (var item in ViewBag.fe)
+                    {
+                        <div class="feature-box">
+                            <i class="@item.Icon"></i>
+                            <h4>@item.Head</h4>
+                            <p>@item.Description</p>
+                        </div>
+                    }
+                    
+
+               
+                 
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="@ViewBag.feature.Image" alt="">
+                </div>
+               
+            </div>
+        </div><!-- .container close -->
+    </section><!-- #service close -->
+
+    <section class="promo-details section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="@ViewBag.grade.Image" alt="" style="float:left;">
+                </div>
+                <div class="col-md-6">
+                    <div class="content mt-100">
+                        <h2 class="subheading">@ViewBag.grade.Head</h2>
+                        @foreach (var item in ViewBag.gr)
+                        {
+                            <p>@item.Description</p>
+                        }
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="feature-list section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h2>@ViewBag.choose.Title</h2>
+                    </div>
+                </div>
+
+            </div>
+            @foreach (var item in ViewBag.ch)
+            {
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <img class="" src="@item.Image" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="content mt-100">
+                            <h4 class="subheading">@item.Head</h4>
+                            <p>@item.Description</p>
+                            <a href="" class="btn btn-main btn-main-sm">Check Features</a>
+                        </div>
+                    </div>
+                </div>
+            }
+           
+            
+        </div>
+    </section>
+
+
+    <section class="gallery" style="display:inline;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h2>@ViewBag.typewatch.Title</h2>
+                    </div>
+                    
+@foreach (var item in ViewBag.tw)
+{
+                        <div class="gallery-slider">
+                            <div class="block">
+                                @*<div class="gallery-overlay">
+                                    <a href="../Images/showcase-2.png" class="image-popup gallery-popup">
+                                        <i class="tf-ion-ios-search"></i>
+                                    </a>
+                                </div>*@
+
+
+                                <img class="img-fluid" src="@item.Image" alt="" >
+                            </div>
+
+                        </div>
+                    }
+
+
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="call-to-action section bg-opacity bg-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow text-center">
+                    <div class="block">
+                        <h2 class="subheading">@ViewBag.update.Head</h2>
+                        <p>@ViewBag.update.Description</p>
+                        <div class="col-lg-6 offset-lg-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Your Email Address Here">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-main" type="button">Subscribe</button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- #call-to-action close -->
+
+
+    <section class="testimonials section">
+        <div class="container">
+            <div class="row">
+                <div class="heading">
+                    <h2>@ViewBag.review.Title</h2>
+                </div>
+
+                @foreach (var item in ViewBag.re)
+                {
+
+                    <div class="col-md-4 text-center">
+                        <div class="testimonial-block">
+                            <i class="tf-ion-quote"></i>
+                            <p>
+                               @item.Description
+                            </p>
+                            <div class="author-details">
+                                <img src="@item.Image" alt="">
+                                <h4>@item.Name</h4>
+                                <span>@item.City</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+                
+            <div class="row mt-100">
+                <div class="col-md-12 text-center">
+                    <a href="" class="btn btn-main">Grab You Product Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+   

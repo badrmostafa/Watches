@@ -1,0 +1,78 @@
+﻿
+@{ 
+    Layout = "~/Views/Home/_LayoutHome.cshtml";
+}
+
+
+
+
+
+<section class="feature section">
+    <div class="container">
+        <div class="row">
+            <div class="heading">
+                <h2>@ViewBag.feature.Title</h2>
+            </div>
+            <div class="col-md-4">
+                @foreach (var item in ViewBag.fe)
+                {
+                    <div class="feature-box">
+                        <i class="@item.Icon"></i>
+                        <h4>@item.Head</h4>
+                        <p>@item.Description</p>
+                    </div>
+                }
+
+
+
+
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="@ViewBag.feature.Image" alt="">
+            </div>
+
+        </div>
+    </div><!-- .container close -->
+</section><!-- #service close -->
+
+
+<section class="promo-details section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img src="@ViewBag.grade.Image" alt="" style="float:left;">
+            </div>
+            <div class="col-md-6">
+                <div class="content mt-100">
+                    <h2 class="subheading">@ViewBag.grade.Head</h2>
+                    @foreach (var item in ViewBag.gr)
+                    {
+                        <p>@item.Description</p>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

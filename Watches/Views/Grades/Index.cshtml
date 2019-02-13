@@ -1,0 +1,59 @@
+﻿@model PagedList.IPagedList<Watches.Models.Classes.Grade>
+@using PagedList.Mvc;
+<link  href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
+@{
+    ViewBag.Title = "Index";
+
+   
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Grades", FormMethod.Get))
+{
+    <p>
+        Find By Head:@Html.TextBox("search",ViewBag.filter as string)
+        <input type="submit" value="Search" class="btn btn-warning "/>
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            Image
+        </th>
+        <th>
+            @Html.ActionLink("Head", "Index", new {sort=ViewBag.Head })
+        </th>
+        <th>
+          Description
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Head)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GradeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GradeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GradeID })
+        </td>
+    </tr>
+}
+
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) Of @Model.PageCount
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, sort = ViewBag.sort, filter = ViewBag.filter }));
